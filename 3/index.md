@@ -20,7 +20,7 @@
 
 ## 實作：手動使用 Shell 指令自動化 Git 操作
 
-我們先來看看如何手動編寫 Shell 指令來自動提交和推送代碼。
+我們先來看看如何手動編寫 Shell 指令來自動提交和推送代碼。在開始之前請先到專案設定 Settings --> Actions --> General --> Workflow permissions --> 開啟 Read and write permissions 並點擊 Save。
 
 **步驟 1：建立工作流程文件**
 1. 在儲存庫中，創建一個新的 GitHub Actions 工作流程文件，例如 `.github/workflows/auto-commit.yml`。
