@@ -1,6 +1,4 @@
-<!-- @format -->
-
-# 統計 Notion 待辦事項放到 Discord 頻道
+# 有人在水 - 統計 Notion 待辦事項放到 Discord 頻道
 
 > 孔子能從心所欲不逾矩。正是因為他已經掌握 GitHub Actions，能夠根據自己的需求自動化操作。
 
@@ -242,8 +240,8 @@ async function updateTasks() {
         headers: {
           Authorization: `Bearer ${notionToken}`,
           "Notion-Version": "2022-06-28",
-          "Content-Type": "application/json",
-        },
+          "Content-Type": "application/json"
+        }
       }
     );
 
@@ -251,7 +249,7 @@ async function updateTasks() {
     let inProgressCount = 0;
 
     // 解析 Notion API 的響應
-    notionResponse.data.results.forEach(result => {
+    notionResponse.data.results.forEach((result) => {
       const status = result.properties.Status.status.name;
       if (status === "Not started") {
         notStartedCount++;
@@ -264,26 +262,26 @@ async function updateTasks() {
     await axios.patch(
       `https://discord.com/api/v10/channels/${discordChannelId}`,
       {
-        name: `還有 ${notStartedCount} 件事沒人做`,
+        name: `還有 ${notStartedCount} 件事沒人做`
       },
       {
         headers: {
           Authorization: `Bot ${discordToken}`,
-          "Content-Type": "application/json",
-        },
+          "Content-Type": "application/json"
+        }
       }
     );
 
     await axios.patch(
       `https://discord.com/api/v10/channels/${discordChannelId}`,
       {
-        name: `${inProgressCount} 件事處理中`,
+        name: `${inProgressCount} 件事處理中`
       },
       {
         headers: {
           Authorization: `Bot ${discordToken}`,
-          "Content-Type": "application/json",
-        },
+          "Content-Type": "application/json"
+        }
       }
     );
 
@@ -324,7 +322,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Use custom action
         uses: ./ # 使用自定義 Action 的路徑
@@ -354,7 +352,7 @@ on:
     - cron: "0 0 * * *"  # 每天 00:00 UTC 觸發
 ```
 
-## 今天的 GitHub Action 怎麼怪怪的？
+## 今天的 GitHub Actions 怎麼怪怪的？
 
 今天和以前不一樣，我們的 Action 並不是直接執行的，而是透過一個腳本來執行的。這樣的好處是我們可以在腳本中執行多個命令，並且可以更靈活地控制流程。這樣的設計可以讓我們更好地利用 GitHub Actions 來實現自動化操作。
 

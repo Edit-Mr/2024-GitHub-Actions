@@ -1,4 +1,4 @@
-## 自動化版本控制與發布
+# 解放你的 Release - 自動化版本控制與發布
 
 > 秦始皇焚書坑儒時可以 force push 刪除紀錄，但誰知道有沒有人本地 `.git` 還留著呢！
 
@@ -36,7 +36,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up Git
         run: |

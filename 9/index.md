@@ -98,10 +98,10 @@ Jest 是由 Facebook 開發的一個 JavaScript 測試框架，適用於測試 J
 
        steps:
          - name: Check out code
-           uses: actions/checkout@v2
+           uses: actions/checkout@v3
 
          - name: Set up Node.js
-           uses: actions/setup-node@v2
+           uses: actions/setup-node@v3
            with:
              node-version: "20"
 
@@ -151,7 +151,7 @@ Jest 是由 Facebook 開發的一個 JavaScript 測試框架，適用於測試 J
 
    jest.mock("./myDependency", () => {
      return {
-       myFunction: jest.fn(() => "mocked value"),
+       myFunction: jest.fn(() => "mocked value")
      };
    });
 
