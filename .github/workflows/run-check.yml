@@ -4,8 +4,8 @@ name: 鐵人賽發文檢查
 
 on:
   # every hour from 12:00 to 23:00
-  schedule:
-    - cron: "0 4-16 * * *"
+  # schedule:
+  #   - cron: "0 4-16 * * *"
   workflow_dispatch:
 
 jobs:
